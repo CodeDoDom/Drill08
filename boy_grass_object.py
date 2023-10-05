@@ -45,7 +45,7 @@ class BigBall:
         self.image = load_image('ball41x41.png')
 
     def update(self):
-        self.y -= random.randint(5, 10)
+        self.y -= random.randint(7, 12)
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -66,7 +66,7 @@ def reset_world():
     global grass
     global team
     global world
-    global s_balls
+    global s_balls, b_balls
 
     running = True
     world = []
@@ -79,6 +79,9 @@ def reset_world():
 
     s_balls = [SmallBall() for i in range(10)]
     world += s_balls
+
+    b_balls = [BigBall() for i in range(10)]
+    world += b_balls
 
 
 def update_world():
