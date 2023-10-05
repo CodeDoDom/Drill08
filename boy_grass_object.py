@@ -4,14 +4,14 @@ from pico2d import *
 
 
 # Game object class here
-class Grass:  # 클래스 이름은 대문자로 시작하는 명사
+class Grass:
     def __init__(self):
         self.image = load_image('grass.png')
 
     def draw(self):
         self.image.draw(400, 30)
 
-    def update(self):  # world list를 이용해 업데이트하기 위해 만들어 놓음
+    def update(self):
         pass
 
 
@@ -77,7 +77,7 @@ def reset_world():
     running = True
     world = []
 
-    grass = Grass()  # 클래스를 이용해 객체를 찍어냄
+    grass = Grass()
     world.append(grass)
 
     team = [Boy() for i in range(11)]
@@ -110,7 +110,7 @@ reset_world()
 # game main loop code
 while running:
     handle_events()
-    update_world()  # 객체들의 사호작용 결과 업데이트
+    update_world()
     render_world()
     delay(0.05)
 
