@@ -34,6 +34,8 @@ class SmallBall:
 
     def update(self):
         self.y -= random.randint(5, 10)
+        if self.y <= 50:
+            self.y = 50
 
     def draw(self):
         self.image.draw(self.x, self.y)
@@ -46,6 +48,8 @@ class BigBall:
 
     def update(self):
         self.y -= random.randint(7, 12)
+        if self.y <= 50:
+            self.y = 50
 
     def draw(self):
         self.image.draw(self.x, self.y)
