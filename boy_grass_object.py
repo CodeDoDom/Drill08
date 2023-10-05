@@ -2,29 +2,31 @@ import random
 
 from pico2d import *
 
+
 # Game object class here
-class Grass:    # 클래스 이름은 대문자로 시작하는 명사
+class Grass:  # 클래스 이름은 대문자로 시작하는 명사
     def __init__(self):
         self.image = load_image('grass.png')
 
     def draw(self):
         self.image.draw(400, 30)
 
-    def update(self):   # world list를 이용해 업데이트하기 위해 만들어 놓음
+    def update(self):  # world list를 이용해 업데이트하기 위해 만들어 놓음
         pass
-    
+
+
 class Boy:
     def __init__(self):
         self.x, self.y = random.randint(100, 700), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('run_animation.png')
-        
+
     def update(self):
         self.frame = (self.frame + 1) % 8
         self.x += 5
-        
+
     def draw(self):
-        self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
+        self.image.clip_draw(self.frame * 100, 0, 100, 100, self.x, self.y)
 
 
 class SmallBall:
@@ -53,7 +55,7 @@ class BigBall:
 
     def draw(self):
         self.image.draw(self.x, self.y)
-        
+
 
 def handle_events():
     global running
@@ -75,7 +77,7 @@ def reset_world():
     running = True
     world = []
 
-    grass = Grass() # 클래스를 이용해 객체를 찍어냄
+    grass = Grass()  # 클래스를 이용해 객체를 찍어냄
     world.append(grass)
 
     team = [Boy() for i in range(11)]
